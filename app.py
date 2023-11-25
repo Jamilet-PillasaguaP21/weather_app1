@@ -16,6 +16,7 @@ def get_weather_data(city):
 def jami():
     return get_weather_data('Guayaquil')
 
+#ruta para curriculum
 @app.route('/about')
 def about():
     return render_template('mi_curriculo.html')
@@ -24,15 +25,16 @@ def about():
 def clima():
     return 'clima'
 
+#ruta para el api clima
 @app.route('/prueba')
 def prueba():
-    clima = get_weather_data('Quito')
+    clima = get_weather_data('Guayaquil')
     temperatura = str(clima['main']['temp'])
     descripcion = str(clima['weather'][0]['description'])
     icono = str(clima['weather'][0]['icon'])
     
     r_json = {
-        'ciudad': 'Quito',
+        'ciudad': 'Guayaquil',
         'temperatura': temperatura,
         'descripcion': descripcion,
         'icono': icono
